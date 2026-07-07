@@ -28,21 +28,14 @@
     </header>
 
     <section class="banner">
-        <!-- 背景装饰层：径向渐变光晕 + 星点闪烁 -->
-        <div class="banner-bg-layer layer-1"></div>
-        <div class="banner-bg-layer layer-2"></div>
+        <!-- 背景装饰层：静态径向渐变光晕（无动画，性能友好） -->
+        <div class="banner-bg-layer"></div>
 
-        <!-- 静态装饰圆圈（增强背景空间感） -->
-        <div class="float-deco circle slow" style="top:12%;left:8%;width:60px;height:60px;z-index:1;"></div>
-        <div class="float-deco circle accent medium" style="top:22%;right:12%;width:40px;height:40px;z-index:1;"></div>
-        <div class="float-deco circle solid fast" style="top:65%;left:15%;width:20px;height:20px;z-index:1;"></div>
-        <div class="float-deco circle medium" style="top:72%;right:20%;width:80px;height:80px;z-index:1;"></div>
-        <div class="float-deco circle accent slow" style="top:45%;left:5%;width:15px;height:15px;z-index:1;"></div>
-        <div class="float-deco circle fast" style="top:50%;right:8%;width:28px;height:28px;z-index:1;"></div>
-        <div class="float-deco circle solid slow" style="top:30%;left:35%;width:10px;height:10px;z-index:1;"></div>
-        <div class="float-deco circle medium" style="top:60%;right:38%;width:18px;height:18px;z-index:1;"></div>
+        <!-- 静态装饰圆圈（少量，无动画，增强背景层次） -->
+        <div class="float-deco" style="top:15%;left:10%;width:70px;height:70px;z-index:1;"></div>
+        <div class="float-deco" style="top:65%;right:15%;width:45px;height:45px;z-index:1;"></div>
 
-        <!-- 动态粒子画布（最上层） -->
+        <!-- 动态粒子画布（仅桌面端显示，移动端自动禁用） -->
         <canvas id="bannerParticles" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"></canvas>
 
         <!-- 主内容 -->
@@ -272,22 +265,15 @@
 
             <footer class="footer reveal delay-4" id="contact">
                 <div class="footer-stats">
-                    <div class="stat"><div class="label">累计访问</div><div class="value"><span data-counter>52.65</span><span class="unit">w</span></div></div>
-                    <div class="stat"><div class="label">昨日访问</div><div class="value"><span data-counter>550</span><span class="unit">次</span></div></div>
-                    <div class="stat"><div class="label">服务新生</div><div class="value"><span data-counter>8000</span><span class="unit">+</span></div></div>
+                    <div class="stat"><div class="label">累计访问</div><div class="value"><span data-counter="126.8">126.8</span><span class="unit">w</span></div></div>
+                    <div class="stat"><div class="label">昨日访问</div><div class="value"><span data-counter="1280">1280</span><span class="unit">次</span></div></div>
+                    <div class="stat"><div class="label">服务新生</div><div class="value"><span data-counter="12000">12000</span><span class="unit">+</span></div></div>
                 </div>
                 <div class="footer-logos">
-                    <div class="footer-logo">
-                        <div class="logo-box blue"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,7H13V13H11M11,15H13V17H11"/></svg></div>
-                        <span class="logo-name">中国联通</span>
-                    </div>
-                    <div class="footer-logo">
-                        <div class="logo-box"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12,3L2,12H5V20H19V12H22L12,3M7.5,16.75A1.25,1.25 0 0,0 8.75,15.5A1.25,1.25 0 0,0 7.5,14.25A1.25,1.25 0 0,0 6.25,15.5A1.25,1.25 0 0,0 7.5,16.75M16.5,16.75A1.25,1.25 0 0,0 17.75,15.5A1.25,1.25 0 0,0 16.5,14.25A1.25,1.25 0 0,0 15.25,15.5A1.25,1.25 0 0,0 16.5,16.75Z"/></svg></div>
-                        <span class="logo-name">盐工营业厅</span>
-                    </div>
-                    <div class="footer-logo">
-                        <div class="logo-box blue"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z"/></svg></div>
-                        <span class="logo-name">720°全景</span>
+                    <div class="footer-logo footer-logo-single">
+                        <div class="logo-box" style="padding:0;background:transparent;box-shadow:none;border:none;">
+                            <img src="联通.png" style="width:100%;height:100%;object-fit:contain;display:block;">
+                        </div>
                     </div>
                 </div>
                 <div class="footer-text">
@@ -300,7 +286,7 @@
     </main>
 
     <button class="back-to-top" id="backToTop" aria-label="返回顶部">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41,15.42L12,10.83L16.59,15.42L18,14L12,8L6,14L7.41,15.42Z"/></svg>
     </button>
 
     <script src="app.js" defer></script>

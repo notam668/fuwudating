@@ -107,27 +107,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     position: relative;
-    /* 页面整体背景装饰：多层径向渐变 + 点阵 */
-    background-image:
-        radial-gradient(ellipse 800px 400px at 10% -10%, rgba(45, 159, 102, 0.08), transparent 70%),
-        radial-gradient(ellipse 600px 300px at 90% 10%, rgba(245, 158, 11, 0.06), transparent 70%),
-        radial-gradient(circle 500px at 50% 80%, rgba(37, 99, 235, 0.05), transparent 70%),
-        linear-gradient(180deg, rgba(247, 250, 252, 1) 0%, rgba(240, 253, 244, 0.6) 100%);
-}
-
-/* 页面全局装饰：浮动的淡色几何图形 */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-        radial-gradient(circle at 20% 30%, rgba(15, 94, 58, 0.03) 1px, transparent 1.5px),
-        radial-gradient(circle at 70% 60%, rgba(245, 158, 11, 0.03) 1px, transparent 1.5px),
-        radial-gradient(circle at 40% 80%, rgba(37, 99, 235, 0.03) 1px, transparent 1.5px);
-    background-size: 60px 60px, 80px 80px, 100px 100px;
-    opacity: 0.6;
-    z-index: 0;
+    background-color: #f7fafc;
 }
 
 img {
@@ -153,15 +133,12 @@ button {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: saturate(180%) blur(16px);
-    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    background: rgba(255, 255, 255, 0.96);
     padding: calc(var(--space-3) + var(--safe-top)) var(--space-4) var(--space-3);
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--color-border);
-    transition: box-shadow var(--transition-base);
 }
 
 .nav-bar.scrolled {
@@ -217,113 +194,25 @@ button {
     text-align: center;
 }
 
-/* Banner 内部多层背景装饰：径向渐变光晕 */
+/* Banner 简化背景装饰：只保留一层径向渐变，避免持续动画 */
 .banner-bg-layer {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 1;
-}
-
-.banner-bg-layer.layer-1 {
     background:
-        radial-gradient(ellipse 400px 300px at 20% 20%, rgba(255, 255, 255, 0.15), transparent 70%),
-        radial-gradient(ellipse 500px 350px at 80% 30%, rgba(139, 250, 167, 0.22), transparent 70%),
-        radial-gradient(ellipse 600px 400px at 50% 100%, rgba(255, 255, 255, 0.12), transparent 70%);
+        radial-gradient(ellipse 400px 300px at 20% 20%, rgba(255, 255, 255, 0.12), transparent 70%),
+        radial-gradient(ellipse 500px 350px at 80% 30%, rgba(139, 250, 167, 0.15), transparent 70%);
 }
 
-.banner-bg-layer.layer-2 {
-    background:
-        radial-gradient(circle 2px at 15% 25%, rgba(255, 255, 255, 0.6), transparent 3px),
-        radial-gradient(circle 1.5px at 35% 15%, rgba(255, 255, 255, 0.5), transparent 3px),
-        radial-gradient(circle 2px at 55% 35%, rgba(253, 230, 138, 0.7), transparent 3px),
-        radial-gradient(circle 1px at 75% 20%, rgba(255, 255, 255, 0.6), transparent 2px),
-        radial-gradient(circle 1.5px at 25% 60%, rgba(255, 255, 255, 0.5), transparent 3px),
-        radial-gradient(circle 1px at 85% 65%, rgba(253, 230, 138, 0.6), transparent 2px),
-        radial-gradient(circle 1.5px at 60% 75%, rgba(255, 255, 255, 0.5), transparent 3px),
-        radial-gradient(circle 2px at 10% 80%, rgba(255, 255, 255, 0.4), transparent 3px);
-    background-size: 100% 100%;
-    animation: twinkle 4s ease-in-out infinite;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
-}
-
-/* 光斑装饰：多层 Orb */
-.banner::before,
-.banner::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.banner::before {
-    top: -120px;
-    right: -100px;
-    width: 320px;
-    height: 320px;
-    background: radial-gradient(circle, rgba(253, 230, 138, 0.25), rgba(139, 250, 167, 0.15) 50%, transparent 75%);
-    animation: floatOrb 8s ease-in-out infinite;
-}
-
-.banner::after {
-    bottom: -100px;
-    left: -80px;
-    width: 280px;
-    height: 280px;
-    background: radial-gradient(circle, rgba(139, 250, 167, 0.3), rgba(45, 159, 102, 0.2) 50%, transparent 75%);
-    animation: floatOrb 10s ease-in-out infinite reverse;
-}
-
-@keyframes floatOrb {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-25px, -25px) scale(1.15); }
-}
-
-/* 装饰性浮动元素（通过 data-float 添加不同动画） */
+/* Banner 装饰性圆圈 - 静态，不使用持续动画 */
 .float-deco {
     position: absolute;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.6;
-}
-
-.float-deco.circle {
+    opacity: 0.35;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.float-deco.circle.solid {
-    background: rgba(255, 255, 255, 0.08);
-    border: none;
-}
-
-.float-deco.circle.accent {
-    border-color: rgba(253, 230, 138, 0.4);
-}
-
-.float-deco.slow { animation: floatSlow 12s ease-in-out infinite; }
-.float-deco.medium { animation: floatMedium 8s ease-in-out infinite; }
-.float-deco.fast { animation: floatFast 6s ease-in-out infinite; }
-
-@keyframes floatSlow {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(10px, -15px) rotate(5deg); }
-    50% { transform: translate(-5px, -25px) rotate(-5deg); }
-    75% { transform: translate(-15px, -10px) rotate(3deg); }
-}
-
-@keyframes floatMedium {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(-15px, 10px); }
-}
-
-@keyframes floatFast {
-    0%, 100% { transform: translate(0, 0); opacity: 0.6; }
-    50% { transform: translate(8px, -8px); opacity: 0.9; }
+    border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .banner-content {
@@ -342,7 +231,7 @@ button {
     color: #e8faf1;
     letter-spacing: 2px;
     margin-bottom: 20px;
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .banner .main-heading {
@@ -412,24 +301,9 @@ button {
     z-index: 5;
 }
 
-/* 内容区背景装饰：浮动的几何元素 */
+/* 内容区背景装饰：简化，移除模糊和动画（移动端性能） */
 .content-deco {
-    position: absolute;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.5;
-}
-
-.content-deco.blob {
-    border-radius: 50%;
-    filter: blur(40px);
-    animation: blobFloat 15s ease-in-out infinite;
-}
-
-@keyframes blobFloat {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -20px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.95); }
+    display: none;
 }
 
 /* ---------- 4. 倒计时卡片 ---------- */
@@ -565,13 +439,6 @@ button {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* 数字闪烁动画 */
-    animation: numberPulse 2s ease-in-out infinite;
-}
-
-@keyframes numberPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.04); }
 }
 
 .countdown-label {
@@ -613,12 +480,6 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
 }
 
 .notice-bar .speaker-icon svg {
@@ -810,19 +671,11 @@ button {
     transition: transform var(--transition-base), box-shadow var(--transition-base);
     background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
     border: 1px solid rgba(45, 159, 102, 0.12);
-    animation: iconBreath 4s ease-in-out infinite;
-    animation-delay: calc(var(--icon-delay, 0) * 0.2s);
-}
-
-@keyframes iconBreath {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-3px) scale(1.04); }
 }
 
 .grid-item:hover .icon-wrapper {
     transform: scale(1.1) rotate(-3deg);
     box-shadow: 0 8px 16px -4px rgba(45, 159, 102, 0.3);
-    animation: none;
 }
 
 .grid-item:active .icon-wrapper {
@@ -890,24 +743,6 @@ button {
     box-shadow: 0 2px 6px rgba(239, 68, 68, 0.35);
     z-index: 2;
     letter-spacing: 0.5px;
-    /* 轻微呼吸动画 + 闪光效果 */
-    animation: badgePulse 2.5s ease-in-out infinite;
-}
-
-@keyframes badgePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-}
-
-.badge::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 999px;
-    background: inherit;
-    opacity: 0.4;
-    filter: blur(6px);
-    z-index: -1;
 }
 
 .badge.blue {
@@ -1242,6 +1077,11 @@ button {
     fill: currentColor;
 }
 
+.footer-logo-single .logo-box {
+    width: 90px;
+    height: 90px;
+}
+
 .footer-logo .logo-name {
     font-size: 11px;
     color: var(--color-text-light);
@@ -1309,7 +1149,7 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.9);
-    background: rgba(17, 24, 39, 0.92);
+    background: rgba(17, 24, 39, 0.95);
     color: #fff;
     padding: 12px 20px;
     border-radius: var(--radius-md);
@@ -1322,7 +1162,6 @@ button {
     max-width: 80%;
     text-align: center;
     pointer-events: none;
-    backdrop-filter: blur(10px);
     box-shadow: var(--shadow-lg);
 }
 
