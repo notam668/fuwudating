@@ -15,16 +15,10 @@
 </head>
 <body>
     <header class="nav-bar">
-        <button class="icon-btn" onclick="history.length > 1 ? history.back() : window.scrollTo({top:0,behavior:'smooth'})">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
-        </button>
         <div class="title-group">
             <div class="main-title">新生服务大厅</div>
             <div class="sub-title">YCIT · 2026 Freshman</div>
         </div>
-        <button class="icon-btn" onclick="YCITService.showToast('长按页面可分享给同学')">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
-        </button>
     </header>
 
     <section class="banner">
@@ -122,7 +116,7 @@
                     <div class="card-status">2026级新生暂未开启</div>
                 </div>
                 <div class="grid-container">
-                    <a class="grid-item" data-action="#" data-title="关于校园网">
+                    <a class="grid-item" data-action="https://mp.weixin.qq.com/s/FRrDGzk_gZ_5oTdNwga-8Q" data-title="关于校园网">
                         <div class="icon-wrapper"><span class="badge green">WIFI</span><svg viewBox="0 0 24 24" fill="#0f5e3a"><path d="M12,21L15.6,16.2C14.6,15.45 13.35,15 12,15C10.65,15 9.4,15.45 8.4,16.2L12,21M1,9V13H3V9C3,5 7,3 11,3S19,5 19,9V13H21V9C21,5 17,1 13,1S5,5 5,9M8.5,13.5C9.5,12.5 10.93,12 12,12C13.07,12 14.5,12.5 15.5,13.5L12,17L8.5,13.5Z"/></svg></div>
                         <span class="item-label">关于校园网</span>
                     </a>
@@ -134,7 +128,7 @@
                         <div class="icon-wrapper color-blue"><svg viewBox="0 0 24 24" fill="#2563eb"><path d="M17.7,7.59L18.8,4.66C18.94,4.28 18.67,3.93 18.29,4.07L16.29,4.77L15.5,1.13C15.44,0.86 15.19,0.7 14.92,0.76L13.11,1.14L11.58,4.44C11.5,4.62 11.56,4.84 11.71,4.94L13.5,6.04L12.75,9.67C12.67,10.05 12.94,10.4 13.32,10.25L17.03,8.63C17.4,8.47 17.54,8 17.33,7.66L17.7,7.59M20,13V18A2,2 0 0,1 18,20H4A2,2 0 0,1 2,18V12A2,2 0 0,1 4,10H11.67L13.5,6.07L16.17,7.58L14.33,12H17.67L19.5,8.07L21.17,9L19.33,13H20M4,12V18H18V12H4Z"/></svg></div>
                         <span class="item-label">路由器领取</span>
                     </a>
-                    <a class="grid-item" data-action="#" data-title="咨询官方">
+                    <a class="grid-item" href="5e50d2705734f87f116b34494eda64f9.jpg" target="_blank" data-title="咨询官方">
                         <div class="icon-wrapper color-purple"><svg viewBox="0 0 24 24" fill="#7c3aed"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20C10.34,20 8.84,19.37 7.74,18.32L9.17,15.83C9.87,16.56 10.87,17 12,17A3,3 0 0,0 15,14V11A1,1 0 0,0 14,10H13V7.5A1.5,1.5 0 0,0 11.5,6A1.5,1.5 0 0,0 10,7.5A1,1 0 0,1 9,8.5A1,1 0 0,1 8,7.5A3.5,3.5 0 0,1 11.5,4H12M7,12A1,1 0 0,0 6,13A1,1 0 0,0 7,14A1,1 0 0,0 8,13A1,1 0 0,0 7,12M17,12A1,1 0 0,0 16,13A1,1 0 0,0 17,14A1,1 0 0,0 18,13A1,1 0 0,0 17,12Z"/></svg></div>
                         <span class="item-label">咨询官方</span>
                     </a>
@@ -197,7 +191,7 @@
                         <div class="icon-wrapper color-orange"><svg viewBox="0 0 24 24" fill="#d97706"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A4,4 0 0,1 16,10A4,4 0 0,1 12,14A4,4 0 0,1 8,10A4,4 0 0,1 12,6M11,12H13A1,1 0 0,1 14,13A1,1 0 0,1 13,14H11V17H13V14A1,1 0 0,1 14,13A1,1 0 0,1 13,12H11V12M11,18H13V20H11V18Z"/></svg></div>
                         <span class="item-label">奖助学金</span>
                     </a>
-                    <a class="grid-item" data-action="#" data-title="参军入伍">
+                    <a class="grid-item" data-action="https://mp.weixin.qq.com/s/gOzlAi0cWFZO4xawkdwvow" data-title="参军入伍">
                         <div class="icon-wrapper color-red"><svg viewBox="0 0 24 24" fill="#dc2626"><path d="M17.5,3.5L15.5,5.5L11,10L13.5,12.5L11,15L9.5,13.5L3.5,19.5L5,21L11,15.5L13.5,18L15.5,16L18,18.5L20.5,16L18,13.5L20.5,11L17.5,3.5Z"/></svg></div>
                         <span class="item-label">参军入伍</span>
                     </a>
