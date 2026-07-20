@@ -200,20 +200,6 @@
         counters.forEach((el) => observer.observe(el));
     }
 
-    /* ---------- 6. FAQ 手风琴 ---------- */
-    function initFaq() {
-        const items = $$(".faq-item");
-        if (!items.length) return;
-
-        items.forEach((item) => {
-            const q = item.querySelector(".faq-question");
-            on(q, "click", () => {
-                const isOpen = item.classList.contains("open");
-                if (isOpen) item.classList.remove("open");
-                else item.classList.add("open");
-            });
-        });
-    }
 
     /* ---------- 7. 宫格点击反馈 + 跳转 ---------- */
     function initGridItems() {
@@ -346,16 +332,6 @@
         if (el) el.textContent = new Date().getFullYear().toString();
     }
 
-    /* ---------- 10. 新闻列表点击提示（占位） ---------- */
-    function initNewsList() {
-        const items = $$(".news-item");
-        items.forEach((item) => {
-            on(item, "click", () => {
-                const title = item.querySelector(".news-title")?.textContent.trim();
-                showToast("查看详情：" + (title || "最新公告"));
-            });
-        });
-    }
 
     /* ---------- 入口：DOM 就绪后执行 ---------- */
     function init() {
@@ -363,11 +339,11 @@
         initReveal();            // 入场动画（移动端跳过）
         initCountdown();         // 倒计时
         initCounterAnimation();  // 数字动画（移动端跳过动画）
-        initFaq();               // FAQ 手风琴
+
         initGridItems();         // 宫格点击
         initBannerParticles();   // 粒子（移动端禁用）
         initDynamicDate();       // 年份
-        initNewsList();          // 新闻
+
     }
 
     if (document.readyState === "loading") {

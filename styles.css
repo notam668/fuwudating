@@ -768,7 +768,7 @@ button {
 /* ---------- 8. 快速入口导航（新增） ---------- */
 .quick-nav {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 6px;
     background: #fff;
     border-radius: var(--radius-lg);
